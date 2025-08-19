@@ -9,7 +9,7 @@ import java.util.Objects;
 public class Game {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String title;
 
     @Column(name = "game_year")
@@ -17,19 +17,17 @@ public class Game {
     private String genre;
     private String platforms;
     private Double score;
-
-    @Column(name = "img_url")
     private String imgUrl;
 
-    @Column(name = "short_description",  columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT")
     private String shortDescription;
 
-    @Column(name = "long_description", columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT")
     private String longDescription;
 
     public Game(){}
 
-    public Game(long id,
+    public Game(Long id,
                 String title,
                 Integer year,
                 String genre,
@@ -49,7 +47,7 @@ public class Game {
         this.longDescription = longDescription;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -85,7 +83,7 @@ public class Game {
         return longDescription;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -126,7 +124,7 @@ public class Game {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Game game = (Game) o;
-        return id == game.id;
+        return Objects.equals(id, game.id);
     }
 
     @Override
