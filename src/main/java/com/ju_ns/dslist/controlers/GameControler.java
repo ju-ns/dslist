@@ -27,4 +27,5 @@ public class GameControler {
         GameDTO result = gameService.findById(id);
         return result;
     }
+
 }
